@@ -6,3 +6,9 @@ services:
     build:
       context: ./DockerDotNetOAuth
       dockerfile: Dockerfile
+
+  identityserver:
+    image: identityserver
+    build:
+      context: ./IdentityServer
+      dockerfile: Dockerfile
