@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Client</title>
+</head>
+<body>
+Test Client
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"/></script>
+<script>
+    function GetToken() {
+        $.ajax({
+                type: 'POST',
+                url: 'http://localhost:32772/connect/token',
+                crossDomain: true,
+                timeout: 2000,
+                data: {
+                    "client_id": "client",
+                    "grant_type": "client_credentials",
+                    "client_secret": "secret",
+                    "scopes": "api1"
+                }
+            })
+            .done(function(data) {
+                console.log("Got token: " + data.access_token);
+            });
+    }
+
+    $(function () {
+        GetToken();
+    });
+</script>
+</body>
+</html>

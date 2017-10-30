@@ -3,12 +3,28 @@ version: '3'
 services:
   dockerdotnetoauth:
     image: dockerdotnetoauth
+    ports:
+      - 32771:80
     build:
       context: ./DockerDotNetOAuth
       dockerfile: Dockerfile
 
   identityserver:
     image: identityserver
+    ports:
+      - 32772:80
     build:
       context: ./IdentityServer
       dockerfile: Dockerfile
+
+  testclient:
+    image: testclient
+    ports:
+      - 32773:80
+    build: 
+      context: ./Client
+      dockerfile: Dockerfile
+    volumes:
+      - ./Client:/usr/share/nginx/html
+    ports:
+     - 56108:80

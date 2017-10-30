@@ -34,7 +34,8 @@ namespace IdentityServer
                     },
 
                     // scopes that client has access to
-                    AllowedScopes = { "api1" }
+                    AllowedScopes = { "api1" },
+                    AllowedCorsOrigins = new[] {"http://localhost:32773"},
                 }
             };
         }

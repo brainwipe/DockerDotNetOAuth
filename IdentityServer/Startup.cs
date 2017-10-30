@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using IdentityServer4.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,6 +15,7 @@ namespace IdentityServer
             services.AddIdentityServer()
                 .AddInMemoryApiResources(Configuration.GetApiResources())
                 .AddInMemoryClients(Configuration.GetClients())
+                .AddCorsPolicyService<InMemoryCorsPolicyService>()
                 .AddDeveloperSigningCredential();
         }
 
@@ -23,7 +25,7 @@ namespace IdentityServer
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().AllowCredentials());
             app.UseIdentityServer();
         }
     }

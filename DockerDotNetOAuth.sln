@@ -9,6 +9,12 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{5DFBAA3D-93C7-4155-A8AA-ED869CE728B8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{090D8568-8B65-4BCC-89CA-78DA293C122A}"
+	ProjectSection(SolutionItems) = preProject
+		Client\Dockerfile = Client\Dockerfile
+		Client\index.html = Client\index.html
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
