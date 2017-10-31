@@ -22,6 +22,20 @@ Test Client
             })
             .done(function(data) {
                 console.log("Got token: " + data.access_token);
+                //CallService(data.access_token);
+            });
+    }
+
+    function CallService(token) {
+        $.ajax({
+                type: 'GET',
+                url: 'http://localhost:32771/api/values',
+                crossDomain: true,
+                timeout: 2000,
+                beforeSend: function(xhr) { xhr.setRequestHeader('Authorization','Bearer ' + token) }
+            })
+            .done(function(data) {
+                console.log(data);
             });
     }
 

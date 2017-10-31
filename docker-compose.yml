@@ -26,5 +26,3 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./Client:/usr/share/nginx/html
-    ports:
-     - 56108:80
